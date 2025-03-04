@@ -1,0 +1,358 @@
+/* hiệu ứng chuột */
+.spotlight {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+body {
+  background-color: #101b38;
+  color: #8397be;
+  /* color: white; */
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  /* box-sizing: border-box; */
+  letter-spacing: 2px;
+}
+
+.main {
+  display: flex;
+  /* margin: auto; */
+  /* background-color: aliceblue; */
+  width: 80%;
+}
+
+.left,
+.right {
+  flex: 1;
+  margin-top: 4%;
+}
+
+/* left */
+.left {
+  /* background-color: blueviolet; */
+  /* margin-top: 5%; */
+  /* padding: 10%; */
+  /* box-sizing: border-box; */
+  position: sticky; /* cố định khi cuộn*/
+}
+
+.info {
+  /* display: block; */
+  width: 100%;
+  height: 50%;
+  /* margin-top: 10px; */
+  /* background-color: aqua; */
+  /* box-sizing: border-box; */
+  line-height: 0.8; /* Kiểm soát khoảng cách giữa các dòng */
+}
+.info img {
+  /* bo tròn hình */
+  border-radius: 50%;
+  width: 45%;
+  height: 70%;
+  /* margin: auto; */
+}
+
+.info h1 {
+  /* font-family: "Times New Roman", Times, serif; */
+  font-size: 45px;
+  font-weight: 600;
+  color: #c5d1ec;
+}
+
+.info h3 {
+  /* font-family: "Times New Roman", Times, serif; */
+  font-size: 30px;
+  font-weight: 500;
+  color: #c5d1ec;
+}
+
+.info p {
+  /* font-family: "Times New Roman", Times, serif; */
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* sidebar */
+.sidebar {
+  padding-top: 7px;
+  line-height: 3;
+  margin-bottom: 50px;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding-bottom: 15px;
+  padding: 0;
+  position: relative; /*thay đổi vị trí của phần tử so với vị trí ban đầu của nó mà không làm ảnh hưởng đến các phần tử khác.*/
+  transition: color 0.8s ease;
+}
+
+.sidebar ul li a {
+  color: #677a9f;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  text-transform: uppercase;
+  transition: color 0.8s ease; /*Khi thay đổi màu chữ (color), hiệu ứng chuyển đổi sẽ diễn ra trong 0.3 giây với tốc độ mượt (ease).*/
+}
+
+.ds {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* max-width: 200px; */
+  width: fit-content; /* Để nó không rộng hơn nội dung */
+  padding: 5px 10px; /* Tạo khoảng trống nhỏ cho đẹp */
+  /* margin: 0; */
+}
+
+.ds hr {
+  /* flex-grow: 0; Ngăn nó mở rộng */
+  width: 30px; /* Kích thước mong muốn */
+  height: 1px; /* độ dày */
+  border: none;
+  background-color: #677a9f;
+  margin: 0;
+  transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+/* trạng thái active đầu tiên */
+.sidebar ul li.active a {
+  color: white; /* Màu chữ khi active */
+}
+
+.sidebar ul li.active hr {
+  background-color: white; /* Màu đường kẻ khi active */
+  width: 60px; /* Độ rộng đường kẻ khi active */
+}
+
+/* hiệu ứng */
+.sidebar ul li:hover hr {
+  background-color: white;
+  width: 60px;
+}
+
+.sidebar ul li:hover a {
+  color: white;
+}
+/* contact */
+.contact {
+  /* background-color: antiquewhite; */
+  display: flex;
+  /* padding-top: 20px; */
+
+  gap: 15px;
+}
+
+/* right */
+.right {
+  /* background-color: aliceblue; */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* cuộn đc khi nội dung dài*/
+
+  /* ẩn thanh cuộn */
+  scrollbar-width: none;
+  -ms-overflow-style: auto;
+}
+.about {
+  width: 100%;
+  /* background-color: aqua; */
+  height: auto;
+  margin-bottom: 100px;
+}
+.about p {
+  /* font-size: 15px;
+  font-weight: 200;
+  line-height: 1.7; Điều chỉnh độ cao của dòng */
+  color: #677a9f;
+  line-height: 1.6; /* Tăng khoảng cách giữa các dòng */
+  margin-bottom: 15px; /* Khoảng cách giữa các đoạn */
+}
+
+.about span,
+.content span {
+  color: white;
+  /* font-style: italic; */ /* Thêm thuộc tính chung nếu cần */
+}
+
+/* expEdu */
+.expEdu {
+  /* background-color: #c5d1ec; */
+  width: 100%;
+  height: auto;
+  margin-bottom: 100px;
+}
+.exp {
+  /* background-color: rebeccapurple; */
+  display: flex;
+  align-items: flex-start;
+  /* justify-content: center; */
+  gap: 8px; /*khoảng cách giữa time và content */
+  margin-bottom: 20px;
+  padding: 3px;
+  border-radius: 12px;
+  /* background-color: rgba(255, 255, 255, 0.05); */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.exp:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.01);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.time {
+  /* background-color: aliceblue; */
+  /* flex-shrink: 0; Giữ nguyên kích thước, không bị co lại */
+  font-weight: bold;
+  color: gray;
+  flex: 1.2;
+}
+
+.content {
+  flex: 3.8;
+  line-height: 1.4;
+}
+
+.content h4 {
+  /* font-size: 15px;
+    font-weight: 200;
+    line-height: 1.7; Điều chỉnh độ cao của dòng */
+  font-weight: 400;
+  margin: 0;
+  /* background-color: aliceblue; */
+}
+.content p {
+  /* background-color: yellow; */
+  margin-top: 0px;
+  margin-bottom: 0;
+  /* font-size: 18px;
+  font-weight: 200; */
+}
+
+/* project */
+.project {
+  width: 100%;
+  height: auto;
+  /* background-color: aqua; */
+}
+
+.prj {
+  /* background-color: rebeccapurple; */
+  display: flex;
+  align-items: flex-start;
+  /* justify-content: center; */
+  gap: 8px; /*khoảng cách giữa time và content */
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 12px;
+  /* background-color: rgba(255, 255, 255, 0.05); */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.prj:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.01);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.image {
+  /* background-color: aliceblue; */
+  /* flex-shrink: 0; Giữ nguyên kích thước, không bị co lại */
+  /* background-color: purple; */
+  flex: 1.2;
+}
+
+.image img {
+  width: 90%;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.name {
+  flex: 3.8;
+  line-height: 1.4;
+}
+
+.name h4 {
+  /* font-size: 15px;
+    font-weight: 200;
+    line-height: 1.7; Điều chỉnh độ cao của dòng */
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 5px;
+  /* background-color: aliceblue; */
+}
+
+.name p {
+  /* background-color: yellow; */
+  margin-top: 0px;
+  margin-bottom: 0;
+  /* font-size: 18px;
+  font-weight: 200; */
+}
+
+.name span {
+  color: white;
+}
+
+/* hiệu ứng động info */
+/* hiệu ứng chữ dynamic-text h1*/
+#dynamic-text {
+  font-size: 45px;
+  font-weight: 600;
+  height: 45px;
+  color: #c5d1ec;
+  white-space: nowrap; /* Đảm bảo văn bản không bị ngắt dòng */
+  overflow: hidden; /* Ẩn phần văn bản bị xóa */
+}
+
+/* h3 hiệu ứng*/
+#sub-text {
+  margin-top: 0px;
+  height: 30px;
+  font-size: 30px;
+  font-weight: 500;
+  color: #c5d1ec;
+  white-space: nowrap; /* Đảm bảo văn bản không bị ngắt dòng */
+  overflow: hidden; /*Ẩn phần văn bản bị xóa*/
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.15em;
+  background-color: #c5d1ec;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #c5d1ec;
+  }
+}
